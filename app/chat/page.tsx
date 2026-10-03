@@ -27,9 +27,9 @@ import {
 export default function RAGChatBot() {
   const [input, setInput] = useState("");
 
-  const { messages, sendMessage, status } = useChat(
-    
-  );
+  const { messages, sendMessage, status } = useChat({
+    api: "/api/chat",
+  });
 
   const handleSubmit = (message: PromptInputMessage) => {
     if (!message.text) return;
@@ -45,7 +45,6 @@ export default function RAGChatBot() {
     <div className="max-w-4xl mx-auto p-6 relative size-full h-[calc(100vh)]">
       <div className="flex flex-col h-full">
 
-        {/* Messages */}
         <Conversation className="h-full">
           <ConversationContent>
             {messages.map((message) => (
@@ -71,8 +70,6 @@ export default function RAGChatBot() {
                 })}
               </div>
             ))}
-
-            {/* Loading */}
             {(status === "submitted" || status === "streaming") && (
               <div className="text-sm text-muted-foreground">
                 AI is thinking...
@@ -83,24 +80,25 @@ export default function RAGChatBot() {
           <ConversationScrollButton />
         </Conversation>
 
-        {/* Input */}
+
         <PromptInput
-          className="mt-4"
+          className="p-4 bg-gray-100"
           onSubmit={handleSubmit}
         >
-          <PromptInputBody>
+          <PromptInputBody >
 
-            <PromptInputTextarea
+            <PromptInputTextarea 
+              className="p-10"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything..."
             />
 
             <PromptInputTools>
-              {/* Add tools here later */}
+             
             </PromptInputTools>
 
-            <PromptInputSubmit />
+            <PromptInputSubmit/>
 
           </PromptInputBody>
         </PromptInput>

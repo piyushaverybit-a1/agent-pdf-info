@@ -1,5 +1,10 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
-import { createOpenRouter, openrouter } from "@openrouter/ai-sdk-provider";
+
+import { createOpenRouter} from "@openrouter/ai-sdk-provider";
+
+const openrouter = createOpenRouter({
+  apiKey: process.env.OPENROUTER_API_KEY,
+});
 
 export async function POST(req: Request) {
   try {
