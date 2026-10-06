@@ -23,13 +23,16 @@ import {
   ConversationContent,
   ConversationScrollButton,
 } from "@/components/ai-elements/conversation";
+import { DefaultChatTransport } from "ai";
 
 export default function RAGChatBot() {
   const [input, setInput] = useState("");
 
-  const { messages, sendMessage, status } = useChat({
+const { messages, sendMessage, status } = useChat({
+  transport: new DefaultChatTransport({
     api: "/api/chat",
-  });
+  }),
+});
 
   const handleSubmit = (message: PromptInputMessage) => {
     if (!message.text) return;

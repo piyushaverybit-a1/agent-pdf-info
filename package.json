@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/react": "^4.0.129",
+    "@ai-sdk/react": "^4.0.131",
     "@base-ui/react": "^1.8.0",
     "@langchain/textsplitters": "^1.0.2",
     "@neondatabase/serverless": "^1.2.0",
