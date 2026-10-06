@@ -15,6 +15,13 @@
       "when": 1791012436053,
       "tag": "0001_left_goblin_queen",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791017983258,
+      "tag": "0002_low_radioactive_man",
+      "breakpoints": true
     }
   ]
 }

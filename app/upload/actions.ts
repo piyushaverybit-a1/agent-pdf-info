@@ -1,5 +1,6 @@
 "use server";
 
+import { extractText } from "unpdf";
 import { DB } from "@/lib/db-config";
 import { documents } from "@/lib/db-schema";
 import { generateEmbeddings } from "@/lib/embeddings";
@@ -10,18 +11,18 @@ export async function processPdfFile(formData: FormData) {
     const file = formData.get("pdf") as File;
 
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const pdf = require("pdf-parse");
-    const data = await pdf(buffer);
+const buffer = new Uint8Array(bytes);
+const { text } = await extractText(buffer);
+    const fullText = Array.isArray(text) ? text.join("\n") : text;
 
-    if (!data.text || data.text.trim().length === 0) {
+    if (!fullText || fullText.trim().length === 0) {
       return {
         success: false,
         error: "No text found in PDF",
       };
     }
 
-    const chunks = await chunkContent(data.text);
+    const chunks = await chunkContent(fullText);
     const embeddings = await generateEmbeddings(chunks);
 
     const records = chunks.map((chunk, index) => ({
