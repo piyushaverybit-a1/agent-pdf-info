@@ -29,7 +29,7 @@ const { text } = await extractText(buffer);
       content: chunk,
       embedding: embeddings[index],
     }));
-
+    await DB.delete(documents);
     await DB.insert(documents).values(records);
 
     return {
