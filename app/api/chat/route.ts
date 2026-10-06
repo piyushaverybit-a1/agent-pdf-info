@@ -49,7 +49,7 @@ export async function POST(req: Request) {
         always search the knowledge base before answering.Use the searchKnowledgeBase
          tool and answer based on its results.Keep the answer concise.
       `,
-      stopWhen: stepCountIs(2),
+      stopWhen: stepCountIs(5),
     });
 
     return result.toUIMessageStreamResponse();

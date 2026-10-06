@@ -22,7 +22,6 @@ export async function searchDocuments(
       similarity,
     })
     .from(documents)
-    .where(gt(similarity, threshold))
     .orderBy(desc(similarity))
     .limit(limit);
 
