@@ -9,7 +9,7 @@ export async function generateEmbedding(text: string) {
   const input = text.replace(/\n/g, " ");
 
   const { embedding } = await embed({
-    model: openrouter.embedding("nvidia/nemotron-3-embed-1b:free"),
+    model: openrouter.embedding(process.env.EMBEDDING_MODEL!),
     value: input,
   });
   console.log(embedding.length);
@@ -20,7 +20,7 @@ export async function generateEmbeddings(texts: string[]) {
   const inputs = texts.map((text) => text.replace(/\n/g, " "));
 
   const { embeddings } = await embedMany({
-    model: openrouter.embedding("nvidia/nemotron-3-embed-1b:free"),
+    model: openrouter.embedding(process.env.EMBEDDING_MODEL!),
     values: inputs,
   });
 
