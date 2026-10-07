@@ -1232,7 +1232,7 @@ export const PromptInputSubmit = ({
   } else if (status === "streaming") {
     Icon = <SquareIcon className="size-4" />;
   } else if (status === "error") {
-    Icon = <XIcon className="size-4" />;
+    // Icon = <XIcon className="size-4" />;
   }
 
   const handleClick = useCallback(

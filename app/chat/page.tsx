@@ -99,7 +99,7 @@ export default function RAGChatBot() {
                           return (
                             <Fragment key={`${message.id}-${index}`}>
                               <Message from={message.role}>
-                                <MessageContent className="p-0 bg-transparent text-inherit">
+                                <MessageContent className=" bg-transparent text-inherit">
                                   <MessageResponse className="text-sm leading-relaxed">
                                     {part.text}
                                   </MessageResponse>
@@ -115,8 +115,8 @@ export default function RAGChatBot() {
                 </div>
 
                 {isUser && (
-                  <div className="h-8 w-8 rounded-full bg-muted text-foreground flex items-center justify-center shrink-0 mt-0.5 border border-border">
-                    <User className="h-4 w-4" />
+                  <div className=" rounded-full bg-muted text-foreground flex items-center justify-center shrink-0 mt-0.5 border border-border">
+                    <User  />
                   </div>
                 )}
               </div>
@@ -126,13 +126,11 @@ export default function RAGChatBot() {
           {isGenerating && (
             <div className="flex gap-3 sm:gap-4 items-start">
               <div className="h-8 w-8 rounded-full bg-[#10a37f] text-white flex items-center justify-center shrink-0 shadow-xs animate-pulse">
-                <Bot className="h-4 w-4" />
+                <Bot className="h-4 w-4"/>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground bg-muted/40 rounded-full px-4 py-2 border border-border/50">
                 <span className="flex gap-1 items-center">
-                  <span className="h-2 w-2 rounded-full bg-[#10a37f] animate-bounce [animation-delay:-0.3s]"></span>
-                  <span className="h-2 w-2 rounded-full bg-[#10a37f] animate-bounce [animation-delay:-0.15s]"></span>
-                  <span className="h-2 w-2 rounded-full bg-[#10a37f] animate-bounce"></span>
+                 
                 </span>
                 <span>AI is thinking...</span>
               </div>
@@ -164,10 +162,10 @@ export default function RAGChatBot() {
               placeholder="Message Agent AI..."
             />
 
-            <div className="flex items-center justify-between pt-2 px-1">
+            <div className="flex items-center justify-between ">
               <PromptInputTools />
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center">
                 {isGenerating && (
                   <Button
                     type="button"
@@ -178,7 +176,7 @@ export default function RAGChatBot() {
                     title="Stop generating"
                     className=" text-destructive rounded-full border border-destructive/20"
                   >
-                    <SquareStop className="" />
+                    <SquareStop />
                   </Button>
                 )}
 
